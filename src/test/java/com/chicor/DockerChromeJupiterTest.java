@@ -25,8 +25,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DockerChromeJupiterTest {
@@ -63,15 +63,20 @@ public class DockerChromeJupiterTest {
     	
     	
     	
-    	ChromeOptions options = new ChromeOptions();
+    	//ChromeOptions options = new ChromeOptions();
     	//options.addArguments("--start-maximized");
-    	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-    	capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+    	//DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+    	//capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+    	
     	WebDriver driver;
-    	
-    	
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
+
+
 		try {
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+			//driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 			
 			
 	        driver.get("https://chicor.com/main");
@@ -87,7 +92,7 @@ public class DockerChromeJupiterTest {
 	        driver.findElement(By.linkText("DEAL")).click();
 	        driver.close();
 	        
-		} catch (MalformedURLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
