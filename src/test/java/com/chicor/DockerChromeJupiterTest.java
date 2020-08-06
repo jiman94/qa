@@ -61,11 +61,15 @@ public class DockerChromeJupiterTest {
     	
     	//WebDriver driver = new ChromeDriver();
     	
+    	
+    	
     	ChromeOptions options = new ChromeOptions();
-    	options.addArguments("--start-maximized");
+    	//options.addArguments("--start-maximized");
     	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
     	capabilities.setCapability(ChromeOptions.CAPABILITY, options);
     	WebDriver driver;
+    	
+    	
 		try {
 			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 			
