@@ -37,6 +37,8 @@ public class DockerChromeJupiterTest {
         // options.setHeadless(true);
     	
     	System.setProperty("webdriver.chrome.driver", "/chromedriver/chromedriver");
+    	
+    	
 
         
     }	
