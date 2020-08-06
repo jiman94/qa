@@ -71,13 +71,21 @@ public class DockerChromeJupiterTest {
     	WebDriver driver;
         
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        driver = new ChromeDriver(options);
-
+        //options.addArguments("headless");
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+		options.addArguments("disable-infobars"); // disabling infobars
+		options.addArguments("--disable-extensions"); // disabling extensions
+		options.addArguments("--disable-gpu"); // applicable to windows os only
+		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+		options.addArguments("--no-sandbox"); // Bypass OS security model
+		driver = new ChromeDriver(options);
 
 		try {
 			//driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 			
+			
+	
+		
 			
 	        driver.get("https://chicor.com/main");
 	        driver.manage().window().setSize(new Dimension(1516, 737));
