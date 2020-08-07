@@ -17,7 +17,10 @@ public class RunningTestOnDocker {
         System.setProperty("webdriver.chrome.driver", driverPath);
 
         // You should check the Port No here.
-        URL gamelan = new URL("http://localhost:4444/wd/hub");
+       // URL gamelan = new URL("http://localhost:4444/wd/hub");
+        URL gamelan = new URL("http://localhost:8088/wd/hub");
+        
+        
         WebDriver driver = new RemoteWebDriver(gamelan, dcap);
         // Get URL
         driver.get("https://www.google.com/");
